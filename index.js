@@ -9,12 +9,12 @@ suite.
     ({ baz: 3, ...obj });
   }).
   add('Object.assign()', function() {
-    Object.assign({}, { baz: 3 }, obj);
+    Object.assign({ baz: 3 }, obj);
   }).
   on('cycle', function(event) {
     console.log(String(event.target));
   }).
   on('complete', function() {
-    console.log('Fastest is ' + this.filter('fastest').map('name'));
+    console.log(`${this.filter('fastest').map('name')} is faster 🤯`);
   }).
   run({ 'async': true });
